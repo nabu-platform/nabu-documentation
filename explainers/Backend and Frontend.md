@@ -1,3 +1,5 @@
+@explain backend,frontend
+
 # Backend vs Frontend
 
 While the definition might change slightly depending on the context, in general a backend and frontend refer to the different parts in a typical web application.

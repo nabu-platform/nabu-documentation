@@ -2,7 +2,7 @@
 
 # Services
 
-When it comes to building [backends|$/explainers/Backend and Frontend.md], Nabu is a service oriented platform. This means the service concept is used throughout the platform in a wide variety of contexts. Once you grasp what a service is, you understand a significant chunk of what the platform offers for building backend solutions.
+When it comes to building backends, Nabu is a service oriented platform. This means the service concept is used throughout the platform in a wide variety of contexts. Once you grasp what a service is, you understand a significant chunk of what the platform offers for building backend solutions.
 
 ## Basic
 
@@ -41,7 +41,7 @@ Both fields only expect a single value, lists are visually marked by a stacking 
 
 Apart from these visual cues for the most important properties of a field, Nabu has a ton of additional restrictions you can add. For example maybe you want only positive numbers to be passed in? Or all numbers must be below 1000?
 
-There is a lot more to data types, you can read up on them [here|$/concepts/data/Introduction.md].
+There is a lot more to datatypes, but that is outside the scope of this article.
 
 ## Contract
 

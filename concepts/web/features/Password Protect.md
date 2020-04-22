@@ -1,3 +1,5 @@
+@tags password protect
+
 # Password Protect
 
 Often you may want to shield your application from the public with a password, especially when it comes to publically available development or testing environments. 
