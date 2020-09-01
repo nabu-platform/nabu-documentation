@@ -16,7 +16,7 @@ Vue.view("hello-world", {
 });
 ```
 
-Note that in ``Vue.view`` the template parameter is _optional_. If not filled in, it will look for a template with the same name as the component. In the above example if we were to remove the template declaration, it would have the same behavior as if you wrote ``template = "#hello-world"``.
+Note that in ``Vue.view`` the template parameter is _optional_. If not filled in, it will look for a template with the same name as the component. In the above example if we were to remove the template declaration, it would have the same behavior as if you wrote ``template: "#hello-world"``.
 
 If we then open up page builder, it will be automatically picked up and available in the dropdown. The input parameter ``message`` is automatically exposed and can be bound to other state or you can set a fixed value.
 
