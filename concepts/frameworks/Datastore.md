@@ -11,7 +11,15 @@ The datastore has a simple intent:
 
 ## Where is the data?
 
-The goal of datastore is that someone using it doesn't necessarily need to care where the data ends up. You can configure this using datastore routes where you indicate per context where data should end up. This can be different per environment as well.
+The goal of datastore is that someone using it doesn't necessarily need to care where the data ends up. This means you don't need to keep a per-application configuration for data storage.
+Instead, you can use datastore routes to indicate per context where data should end up. This can be different per environment as well.
 
-A datastore route can configure a provider that should handle the data. The default provider uses a virtual file system that already supports a number of protocols out of the box. Apart from that you can easily implement a provider that might save your data in a database for example.
+By default datastore uses the Nabu VFS which already supports a number of protocols out of the box. You can however create your own datastore providers which might do entirely different things with the data.
+
+If for example we want to configure all data for our "example" application to be stored in the tmp folder, we can configure this:
+
+[^.resources/datastore-configure-route.mp4]
+
+## URN
+
 
