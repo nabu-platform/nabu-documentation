@@ -45,7 +45,7 @@ z = merge(x, y)
 z[4] = 10
 ```
 
-```
+```python
 fibonacci = generate(lambda(t2: 0, t1: 1, t2 + t1))
 # Without this line of code, the script would hang indefinitely trying to resolve an infinite list
 fibonacci = limit(10, fibonacci)
