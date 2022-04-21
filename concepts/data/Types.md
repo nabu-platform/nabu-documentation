@@ -12,3 +12,12 @@ extensions
 restrictions
 
 groups
+
+
+
+
+advanced modeling: extension, restriction (1-* inheritance vs *-*)
+
+types api
+-> implementations
+-> queries etc

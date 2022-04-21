@@ -63,3 +63,6 @@ People can also invent their own formats for specific reasons, for example custo
 --------
 
 binary vs text
+flat file
+streaming mode, windowing
+json specifics with key/value pairs and all the other specialities

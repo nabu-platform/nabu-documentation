@@ -124,8 +124,3 @@ Our simple single line of business logic has exploded into a multiline monstrosi
 The more you know about the data model ++while designing your business logic++, the simpler your end solution can be and the more stable it will run in production. Knowing for instance that firstName is +always+ present (so a mandatory field) makes it easier than knowing it is +sometimes+ present (so an optional field) which would still require a minor bit of defensive pseudocode to deal with both situations.
 
 Knowing that a Belgian VAT number +always+ has the same format -BE followed by 10 numbers- we can enforce this on the incoming data by configuring a pattern. That means, at the business logic level we don't have to account for someone sending "abc" as a VAT number. 
-
-## Conclusion
-
-The Nabu Development Platform focuses heavily on what we call ``design time guarantees``, this means it has a heavily focuses on the data model and will help you build solutions based on that knowledge to avoid bugs and provide predictable behavior in production with as few edge cases as possible.
-Of course, for those times when it is needed, the platform can also work with unstructured or unmodelled data.
