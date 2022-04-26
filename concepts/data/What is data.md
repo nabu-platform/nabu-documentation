@@ -41,7 +41,7 @@ The fishtags and the trailing slash are all part of the syntax, making it trivia
 
 Of course what is easy for a computer to parse and understand it not necessarily easy for a human to create with the precision required by a computer. That is at the core of application development: building ways for computers and humans to interact.
 
-### Artificial Intelligence
+## Artificial Intelligence
 
 At this point it is important to highlight the significance of AI, especially in the last few years. Classic AI is, much like our brains, incredibly good at pattern recognition. While in single instances it generally does not perform as well as our brain, it more than makes up for it in volume and complexity. You can categorize a single image better than a computer, but when it comes to categorizing millions of images, the computer will always win.
 
@@ -75,52 +75,5 @@ The other dimension to structured data is defining what it is actually trying to
 </company>
 ```
 
-The data format is relevant to +parsing+ the data into something the computer understands, the ``data model`` details what it actually means and is relevant to +using+ the data in business logic. While you can do some neat technical tricks on data where the data model is unknown, there is very little useful business logic that can be built on a data with an unknown model because at some point, you need to know how the data you have relates to the problem you are trying to solve.
+While the data format is relevant to +parsing+ the data into something the computer understands, the ``data model`` details what it actually means and is relevant to +using+ the data in business logic. While you can do some neat technical tricks on data where the data model is unknown, there is very little useful business logic that can be built on a data with an unknown model because at some point, you need to know how the data you have relates to the problem you are trying to solve.
 
-## Defined vs dynamic
-
-Let's say we have an employee record, suppose we agree on a data model beforehand and +know+ that the record will +always+ contain a firstName and a lastName field:
-
-```xml
-<employee>
-	<firstName>Johh</firstName>
-	<lastName>Smith</lastName>
-</employee>
-```
-
-This means -if we switch to pseudocode- we could state unequivocally:
-
-```
-fullName = employee.firstName + " " + employee.lastName
-```
-
-At the moment we are writing that pseudocode -so ``at design time``- we +know+ that the fields will exist, we can rest assured that that piece of pseudocode will always work. There are no exceptions. Given the guarantee that those fields are always present with that exact name, we know that we will not run into situations where someone writes "firstname" in all lowercase or "first_name" with underscores or "voornaam" in another language, or just leaves out the first name alltogether.
-
-This means, not only do we have a +defined+ model, but it is known at ++design time++ and gives us guarantees as to what our business logic will do given that data. If faulty data somehow enters the system, it will never even reach our pseudocode because it will fail earlier validation checks to see that the data matches our expectations.
-
-An alternative to this is that we don't specifically know or enforce the exact structure beforehand, but we have some vague ideas about what it +should+ contain. That severely complicates our business logic:
-
-```
-if (employee.firstName != null)
-	firstName = employee.firstName
-else if (employee.first_name != null)
-	firstName = employee.first_name
-else if (employee.voornaam != null)
-	firstName = employee.voornaam
-
-if (employee.lastName != null)
-	lastName = employee.lastName
-else if (employee.last_name != null)
-	lastName = employee.last_name
-else if (employee.achternaam != null)
-	lastName = employee.achternaam
-
-fullName = firstName + " " + lastName
-```
-
-We call this +defensive+ programming. We have to cover all eventualities in our code, rather than mandating a certain structure from the data. If at some point we notice that some french guy sent along employee.prenom to contain the firstName, we have to update our code, retest it, redeploy it and hope that we don't have a german user in the near future.
-Our simple single line of business logic has exploded into a multiline monstrosity that still has a likelihood of failure in production. Defensive programming adds complexity, indicates frailty and makes it harder to read the end result because the business logic is hidden in tons of irrelevant code.
-
-The more you know about the data model ++while designing your business logic++, the simpler your end solution can be and the more stable it will run in production. Knowing for instance that firstName is +always+ present (so a mandatory field) makes it easier than knowing it is +sometimes+ present (so an optional field) which would still require a minor bit of defensive pseudocode to deal with both situations.
-
-Knowing that a Belgian VAT number +always+ has the same format -BE followed by 10 numbers- we can enforce this on the incoming data by configuring a pattern. That means, at the business logic level we don't have to account for someone sending "abc" as a VAT number. 
